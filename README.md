@@ -223,5 +223,5 @@ This project is licensed under the MIT License — feel free to use, modify, and
 
 ---
 
-<p align="center">Built with ❤️ using Azure Synapse Analytics</p>
+
 #
