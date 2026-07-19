@@ -1,23 +1,23 @@
 # 🏪 Retail Transactions Medallion Pipeline
 
-**Enterprise-grade Lakehouse ETL & Analytics Platform** built on Azure Synapse Analytics, implementing the **Medallion Architecture** (Bronze → Silver → Gold) to transform raw daily retail transactions into a governed, star-schema-modeled data warehouse ready for BI consumption.
+**Enterprise-grade Lakehouse ETL & Analytics Platform** built on Azure Synapse Analytics, implementing the **Medallion Architecture** (Bronze → Silver → Gold) to transform raw daily retail transactions into a governed, star-schema-modeled data warehouse ready for BI consumption.[cite: 1]
 
 ![Azure Synapse](https://img.shields.io/badge/Azure%20Synapse-Analytics-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
 ![PySpark](https://img.shields.io/badge/PySpark-Engine-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
 ![ADLS Gen2](https://img.shields.io/badge/ADLS-Gen2-0089D6?style=flat-square&logo=microsoftazure&logoColor=white)
 ![Dedicated SQL Pool](https://img.shields.io/badge/Synapse-Dedicated%20SQL%20Pool-336791?style=flat-square&logo=microsoftsqlserver&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-Reporting-F2C811?style=flat-square&logo=powerbi&logoColor=black)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)[cite: 1]
 
 ---
 
 ## 📖 Overview
 
-This repository documents and implements the **Retail Transactions Medallion Data Pipeline**, engineered to ingest, cleanse, transform, and model high-volume daily retail transaction data into an optimized **dimensional Star Schema** for enterprise reporting and analytical exploration.
+This repository documents and implements the **Retail Transactions Medallion Data Pipeline**, engineered to ingest, cleanse, transform, and model high-volume daily retail transaction data into an optimized **dimensional Star Schema** for enterprise reporting and analytical exploration.[cite: 1]
 
-The pipeline strictly follows the **Medallion Architecture** paradigm, structuring data flow into three incremental quality layers — **Bronze**, **Silver**, and **Gold** — guaranteeing data lineage, auditability, and fully idempotent reprocessing.
+The pipeline strictly follows the **Medallion Architecture** paradigm, structuring data flow into three incremental quality layers — **Bronze**, **Silver**, and **Gold** — guaranteeing data lineage, auditability, and fully idempotent reprocessing.[cite: 1]
 
-> **Architectural Principle:** Ingestion bugs or business rule changes can be re-run at any time from the immutable Bronze layer, without ever needing to re-extract data from source operational systems.
+> **Architectural Principle:** Ingestion bugs or business rule changes can be re-run at any time from the immutable Bronze layer, without ever needing to re-extract data from source operational systems.[cite: 1]
 
 ---
 
@@ -31,7 +31,7 @@ The pipeline strictly follows the **Medallion Architecture** paradigm, structuri
 - [Data Quality & Governance Framework](#-automated-data-quality--governance-framework)
 - [BI Analytics Catalog & Power BI Views](#-bi-analytics-catalog--power-bi-views)
 - [Tech Stack](#-tech-stack)
-- [License](#-license)
+- [License](#-license)[cite: 1]
 
 ---
 
@@ -51,8 +51,3 @@ flowchart LR
     style D fill:#ffd700,color:#000
     style E fill:#336791,color:#fff
     style F fill:#f2c811,color:#000
-
-Layer,Purpose
-🟤 Bronze,"Raw, immutable data ingested from daily operational batch files (CSV/Excel), enriched with audit and lineage metadata."
-⚪ Silver,"Cleaned, standardized, typed, and deduplicated datasets — string cleansing, null normalization, date decomposition, and array conversion for multi-item baskets."
-🟡 Gold,"Enterprise Star Schema with conformed dimensions (Customer, Product, Store, Date, Promotion) and centralized fact tables (Sales Fact + Product Bridge), persisted as partitioned CSVs and loaded into Synapse Dedicated SQL Pool."
