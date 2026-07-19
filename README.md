@@ -51,3 +51,8 @@ flowchart LR
     style D fill:#ffd700,color:#000
     style E fill:#336791,color:#fff
     style F fill:#f2c811,color:#000
+
+Layer,Purpose
+🟤 Bronze,"Raw, immutable data ingested from daily operational batch files (CSV/Excel), enriched with audit and lineage metadata."
+⚪ Silver,"Cleaned, standardized, typed, and deduplicated datasets — string cleansing, null normalization, date decomposition, and array conversion for multi-item baskets."
+🟡 Gold,"Enterprise Star Schema with conformed dimensions (Customer, Product, Store, Date, Promotion) and centralized fact tables (Sales Fact + Product Bridge), persisted as partitioned CSVs and loaded into Synapse Dedicated SQL Pool."
